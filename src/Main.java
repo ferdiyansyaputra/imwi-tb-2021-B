@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +11,7 @@ public class Main {
             parkir.showMenu();
             pilihan = input.nextLine();
 
-            if (pilihan.equals("F")){
+            if (pilihan.toUpperCase().equals("F")){
                 parkir.informasiLahan();
             }else{
                 do {
@@ -19,7 +20,7 @@ public class Main {
                 pilihLahan = input.nextLine();
 
 
-                    switch (pilihLahan){
+                    switch (pilihLahan.toUpperCase()){
                         case "A":
                             parkir.parkirMotor();
                             break;
@@ -30,10 +31,19 @@ public class Main {
                             parkir.parkirTruck();
                             break;
                         default:
-                            System.out.println("Tidak dapat dimengerti semoga harimu suram");
+                            System.out.println("Pilihan anda tidak sesuai, silahkan pilih lagi");
                             break;
                     }
-                }while (!pilihLahan.equals("A") && !pilihLahan.equals("B") && pilihLahan.equals("C") );
+
+                    if (pilihLahan.toUpperCase().equals("A")){
+                        break;
+                    }else if (pilihLahan.toUpperCase().equals("B")){
+                        break;
+                    }else if (pilihLahan.toUpperCase().equals("C")){
+                        break;
+                    }
+
+                }while (!pilihLahan.equals("A")  || !pilihLahan.equals("B") || pilihLahan.equals("C") );
             }
         }while (isActive == true);
     }
