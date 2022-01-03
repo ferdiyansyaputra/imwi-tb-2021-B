@@ -1,13 +1,12 @@
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Parkir parkir = new Parkir();
-        String pilihan, pilihLahan;
+        Scanner input = new Scanner(System.in);
+        String pilihan ;
         boolean isActive = true;
         do {
-            Scanner input = new Scanner(System.in);
             parkir.showMenu();
             pilihan = input.nextLine();
 
@@ -17,33 +16,23 @@ public class Main {
                 do {
                 System.out.println("Tekan tombol : ");
                 parkir.showMenuLahan();
-                pilihLahan = input.nextLine();
+                pilihan = input.nextLine();
 
-
-                    switch (pilihLahan.toUpperCase()){
-                        case "A":
-                            parkir.parkirMotor();
-                            break;
-                        case "B":
-                            parkir.parkirMobil();
-                            break;
-                        case "C":
-                            parkir.parkirTruck();
-                            break;
-                        default:
-                            System.out.println("Pilihan anda tidak sesuai, silahkan pilih lagi");
-                            break;
+                    switch (pilihan.toUpperCase()){
+                        case "A" -> parkir.parkirMotor();
+                        case "B" -> parkir.parkirMobil();
+                        case "C" -> parkir.parkirTruck();
+                        default  -> System.out.println("Pilihan anda tidak sesuai, silahkan pilih lagi");
                     }
-
-                    if (pilihLahan.toUpperCase().equals("A")){
+                    if (pilihan.toUpperCase().equals("A")){
                         break;
-                    }else if (pilihLahan.toUpperCase().equals("B")){
+                    }else if (pilihan.toUpperCase().equals("B")){
                         break;
-                    }else if (pilihLahan.toUpperCase().equals("C")){
+                    }else if (pilihan.toUpperCase().equals("C")){
                         break;
                     }
 
-                }while (!pilihLahan.equals("A")  || !pilihLahan.equals("B") || pilihLahan.equals("C") );
+                }while(isActive == true);
             }
         }while (isActive == true);
     }
