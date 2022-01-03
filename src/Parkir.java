@@ -1,8 +1,4 @@
-import java.util.Scanner;
-
 public class Parkir {
-    Scanner input = new Scanner(System.in);
-    String pilihan;
     int lahanMotor = 10, lahanMobil = 5, lahanTruck = 2;
 
     public Parkir(){
@@ -56,7 +52,5 @@ public class Parkir {
     public void messageFull(){
         System.out.println("Parkir penuh, tidak bisa menampung kendaraan tersebut");
     }
-
-
 
 }
